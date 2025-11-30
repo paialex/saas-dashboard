@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+/* In v4, we define custom theme variables directly in CSS.
+  Let's add a custom font or color if we need it later.
+*/
+@theme {
+  --color-brand-primary: #3b82f6;
+  /* A nice SaaS blue */
+}
+
+/* Standard HTML resets */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: #f8fafc;
+  /* Slate-50: A soft gray background */
+}
