@@ -1,37 +1,23 @@
 export const initialFilterState = {
-    searchQuery: '',
-    statusFilter: 'all',
-    sortBy: 'newest',
+    nameFilter: '',
+    emailFilter: '',
+    companyFilter: '',
+    cityFilter: '',
     isDirty: false
 };
 
 export function dashboardReducer(state, action) {
     switch (action.type) {
-        case 'SET_SEARCH':
-            return {
-                ...state,
-                searchQuery: action.payload,
-                isDirty: true
-            };
-
-        case 'SET_STATUS':
-            if (action.payload === 'inactive') {
-                return {
-                    ...state,
-                    statusFilter: action.payload,
-                    sortBy: 'oldest',
-                    isDirty: true
-                };
-            }
-            return {
-                ...state,
-                statusFilter: action.payload,
-                isDirty: true
-            };
-
+        case 'SET_NAME_FILTER':
+            return { ...state, nameFilter: action.payload, isDirty: true };
+        case 'SET_EMAIL_FILTER':
+            return { ...state, emailFilter: action.payload, isDirty: true };
+        case 'SET_COMPANY_FILTER':
+            return { ...state, companyFilter: action.payload, isDirty: true };
+        case 'SET_CITY_FILTER':
+            return { ...state, cityFilter: action.payload, isDirty: true };
         case 'RESET':
             return initialFilterState;
-
         default:
             throw new Error(`Unknown action type: ${action.type}`);
     }
