@@ -1,13 +1,10 @@
-// 1. Define the specific shape of your state
 export const initialFilterState = {
     searchQuery: '',
-    statusFilter: 'all', // 'all' | 'active' | 'inactive'
-    sortBy: 'newest',    // 'newest' | 'oldest'
-    isDirty: false       // Track if filters have changed from default
+    statusFilter: 'all',
+    sortBy: 'newest',
+    isDirty: false
 };
 
-// 2. The Reducer Function
-// This is a PURE function. It takes (OldState, Action) -> NewState
 export function dashboardReducer(state, action) {
     switch (action.type) {
         case 'SET_SEARCH':
@@ -18,7 +15,6 @@ export function dashboardReducer(state, action) {
             };
 
         case 'SET_STATUS':
-            // Business Logic: If status is 'inactive', force sort to 'oldest'
             if (action.payload === 'inactive') {
                 return {
                     ...state,
